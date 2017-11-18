@@ -20,12 +20,17 @@ public class Player:MonoBehaviour {
     //                               INSTANCE VARIABLES                         //
     //////////////////////////////////////////////////////////////////////////////
     public int playerNumber;
+    public int maxHealth;
+    public float speed;
+    public int currentHealth;
 
     private inputDelegate inputFunc;
     private attackDelegate currentAttack;
     private attackDelegate[] attacks;
     private Animator anim;
     private bool isAttacking;
+    private Rigidbody rb;
+    private bool grouned;
     //////////////////////////////////////////////////////////////////////////////
     //                              MAIN METHODS                                //
     //////////////////////////////////////////////////////////////////////////////
@@ -43,6 +48,8 @@ public class Player:MonoBehaviour {
         attacks=new attackDelegate[1];
         attacks[0]=basicAttack;
         currentAttack=attacks[0];
+        rb=GetComponent<Rigidbody>();
+        currentHealth=maxHealth;
     }
 
     // Update is called once per frame
@@ -59,9 +66,12 @@ public class Player:MonoBehaviour {
         if(direction!=Vector3.zero) {
             Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation=rotation;
+            if(grouned) {
+                rb.AddForce(Quaternion.Euler(0, -90, 0)*direction*speed*10);
+                
+            }
         }
-        Debug.DrawRay(transform.position, transform.forward, Color.green);
-
+        anim.SetFloat("Speed", rb.velocity.magnitude);
     }
 
     void changeAttack(int attacktype) {
@@ -69,6 +79,20 @@ public class Player:MonoBehaviour {
         currentAttack=attacks[attacktype];
     }
 
+    void applyDamage(int dmg) {
+        currentHealth-=dmg;
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag =="Ground") {
+            grouned=true;
+        }
+    }
+    private void OnCollisionExit(Collision collision) {
+        if(collision.gameObject.tag=="Ground") {
+            grouned=false;
+        }
+    }
     //////////////////////////////////////////////////////////////////////////////
     //                            ATTACK TYPE METHODS                           //
     //////////////////////////////////////////////////////////////////////////////
