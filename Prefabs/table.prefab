@@ -9,46 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1329923258403752}
+  m_RootGameObject: {fileID: 1725732799499838}
   m_IsPrefabParent: 1
---- !u!1 &1329923258403752
+--- !u!1 &1725732799499838
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4217650248791002}
-  - component: {fileID: 33018866009896810}
-  - component: {fileID: 23987204942488780}
-  - component: {fileID: 95689557894310226}
-  - component: {fileID: 64364041574240364}
+  - component: {fileID: 4275323907677564}
+  - component: {fileID: 33747651463031704}
+  - component: {fileID: 23253257901362070}
+  - component: {fileID: 95253941579918642}
+  - component: {fileID: 65210797184684622}
   m_Layer: 0
-  m_Name: mouseNoRB
+  m_Name: table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4217650248791002
+--- !u!4 &4275323907677564
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1329923258403752}
-  m_LocalRotation: {x: -0.29958788, y: -0.6405055, z: -0.6405053, w: 0.29958788}
-  m_LocalPosition: {x: 13.67, y: 1.64, z: -0.71}
-  m_LocalScale: {x: 0.5921982, y: 0.81291825, z: 0.20522636}
+  m_GameObject: {fileID: 1725732799499838}
+  m_LocalRotation: {x: -4.3297806e-17, y: 0.7071068, z: 0.7071068, w: -4.3297806e-17}
+  m_LocalPosition: {x: 0, y: 1.2302613, z: 0.3318839}
+  m_LocalScale: {x: 11.34, y: 9.65, z: 0.3016485}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -129.86601}
---- !u!23 &23987204942488780
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23253257901362070
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1329923258403752}
+  m_GameObject: {fileID: 1725732799499838}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -56,7 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 8ab0b89493f83e14dae8616ab42a2b97, type: 2}
+  - {fileID: 2100000, guid: a839cf74b5e9c9145a12d2b3e814801b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,36 +75,34 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33018866009896810
+--- !u!33 &33747651463031704
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1329923258403752}
-  m_Mesh: {fileID: 4300000, guid: daf0445087be4f84e8189c62e0ac3dc8, type: 3}
---- !u!64 &64364041574240364
-MeshCollider:
+  m_GameObject: {fileID: 1725732799499838}
+  m_Mesh: {fileID: 4300000, guid: a5c9b4e1f79254514b8de50155ecafd5, type: 3}
+--- !u!65 &65210797184684622
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1329923258403752}
+  m_GameObject: {fileID: 1725732799499838}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: daf0445087be4f84e8189c62e0ac3dc8, type: 3}
---- !u!95 &95689557894310226
+  m_Size: {x: 3.2303715, y: 2.0000007, z: 18.119965}
+  m_Center: {x: -5.1553863e-24, y: 0.00000006193179, z: -8.309975}
+--- !u!95 &95253941579918642
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1329923258403752}
+  m_GameObject: {fileID: 1725732799499838}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: daf0445087be4f84e8189c62e0ac3dc8, type: 3}
+  m_Avatar: {fileID: 9000000, guid: a5c9b4e1f79254514b8de50155ecafd5, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
