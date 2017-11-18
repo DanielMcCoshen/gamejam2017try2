@@ -3,7 +3,7 @@ guid: 9d6938614b90e4ff8a6258a469431cdd
 timeCreated: 1510978521
 licenseType: Free
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 21
   fileIDToRecycleName:
     100000: Armature
     100002: Cube
@@ -14,6 +14,9 @@ ModelImporter:
     100012: LegR
     100014: LegR_end
     100016: //RootNode
+    100018: Head_end_end
+    100020: LegL_end_end
+    100022: LegR_end_end
     400000: Armature
     400002: Cube
     400004: Head
@@ -23,6 +26,9 @@ ModelImporter:
     400012: LegR
     400014: LegR_end
     400016: //RootNode
+    400018: Head_end_end
+    400020: LegL_end_end
+    400022: LegR_end_end
     2100000: Material
     4300000: Cube
     7400000: Armature|Attack
@@ -30,14 +36,16 @@ ModelImporter:
     7400004: Armature|Idle
     7400006: Armature|transform
     7400008: Armature|Walk
+    7400010: Armature|EmptyAction
+    7400012: Armature|EmptyAction2
+    7400014: Armature|EmptyAction3
+    7400016: Armature|Parry
     9500000: //RootNode
     13700000: Cube
-  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -50,7 +58,6 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -75,8 +82,6 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
