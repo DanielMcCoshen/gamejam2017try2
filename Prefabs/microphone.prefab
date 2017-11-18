@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33122951951348602}
   - component: {fileID: 23486002680742676}
   - component: {fileID: 95740102191379934}
-  - component: {fileID: 54272497591722230}
   - component: {fileID: 64284309488191760}
   m_Layer: 0
   m_Name: microphone
@@ -37,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1787597312717602}
-  m_LocalRotation: {x: -0.828719, y: 0, z: -0, w: 0.5596649}
-  m_LocalPosition: {x: -9.3157, y: 6.1335, z: -2.1598}
+  m_LocalRotation: {x: 0.32634088, y: 0.5294988, z: 0.7430165, w: -0.24710156}
+  m_LocalPosition: {x: 8.81, y: 4.19, z: -1.44}
   m_LocalScale: {x: 0.5339992, y: 0.5339993, z: 1.1523165}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -71.465004, y: 44.619003, z: 183.898}
 --- !u!23 &23486002680742676
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -53,12 +52,11 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 8ab0b89493f83e14dae8616ab42a2b97, type: 2}
+  - {fileID: 2100000, guid: 372b03bfa904a8e49b3a33beda2b0b47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -69,7 +67,6 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -85,21 +82,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1787597312717602}
   m_Mesh: {fileID: 4300000, guid: 688b5fa69b1557c4b8a08265d7bb1c02, type: 3}
---- !u!54 &54272497591722230
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1787597312717602}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!64 &64284309488191760
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -109,9 +91,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 688b5fa69b1557c4b8a08265d7bb1c02, type: 3}
 --- !u!95 &95740102191379934
