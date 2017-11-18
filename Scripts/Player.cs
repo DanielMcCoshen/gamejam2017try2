@@ -24,13 +24,20 @@ public class Player:MonoBehaviour {
     public float speed;
     public int currentHealth;
 
+    public GameObject opponent1;
+    public GameObject opponent2;
+    public GameObject[] modes;
+
     private inputDelegate inputFunc;
     private attackDelegate currentAttack;
     private attackDelegate[] attacks;
     private Animator anim;
     private bool isAttacking;
     private Rigidbody rb;
-    private bool grouned;
+    private bool grouned = true;
+    private bool invuln;
+
+    private GameObject currentMode;
     //////////////////////////////////////////////////////////////////////////////
     //                              MAIN METHODS                                //
     //////////////////////////////////////////////////////////////////////////////
@@ -55,10 +62,10 @@ public class Player:MonoBehaviour {
     // Update is called once per frame
     void Update() {
         inputType input = inputFunc();
-        if(input.attack&&!isAttacking) {
+        if(input.attack && !isAttacking) {
             StartCoroutine(currentAttack());
         }
-        else if(input.block) {
+        else if(input.block && !isAttacking) {
             StartCoroutine(block());
         }
 
@@ -80,7 +87,16 @@ public class Player:MonoBehaviour {
     }
 
     void applyDamage(int dmg) {
-        currentHealth-=dmg;
+        if(dmg > 1 || !invuln) {
+            currentHealth = currentHealth - dmg;
+            Debug.Log(playerNumber+" "+currentHealth + ", " + dmg);
+            if (currentHealth <= 0) {
+                Destroy(gameObject);
+            }
+        }
+        else if(invuln) {
+            Debug.Log("BLOCKED!");
+        }
     }
 
     private void OnCollisionEnter(Collision collision) {
@@ -97,14 +113,39 @@ public class Player:MonoBehaviour {
     //                            ATTACK TYPE METHODS                           //
     //////////////////////////////////////////////////////////////////////////////
     private IEnumerator block() {
-        anim.SetTrigger("Transform");
-        yield return 0;
+        anim.SetTrigger("Block");
+        isAttacking=true;
+        invuln = true;
+
+        yield return new WaitForSeconds(0.5f);
+        isAttacking=false;
+        invuln = false;
     }
     private IEnumerator basicAttack() {
         anim.SetTrigger("Attack");
         isAttacking=true;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
+        if(opponent1 != null) {
+            Vector3 directionToTarget = transform.position - opponent1.transform.position;
+            float angle = Vector3.Angle(transform.forward, directionToTarget);
+            float distance = directionToTarget.magnitude;
+            Debug.Log(angle + ", " + distance);
+            if(Mathf.Abs(angle) < 180 && distance < 5) {
+                opponent1.SendMessage("applyDamage", 1);
+            }
+        }
+        if(opponent2 != null) {
+            Vector3 directionToTarget = transform.position - opponent2.transform.position;
+            float angle = Vector3.Angle(transform.forward, directionToTarget);
+            float distance = directionToTarget.magnitude;
+            if(Mathf.Abs(angle) < 90 && distance < 0) {
+                opponent2.SendMessage("applyDamage", 1);
+            }
+        }
+
+        yield return new WaitForSeconds(0.3f);
+
         isAttacking=false;
     }
     ///////////////////////////////////////////////////////////////////////////
