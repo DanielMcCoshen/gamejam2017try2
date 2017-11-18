@@ -55,12 +55,12 @@ public class Player:MonoBehaviour {
             StartCoroutine(block());
         }
 
-        Vector3 direction = new Vector3(input.X, 0, input.Y);
+        Vector3 direction = new Vector3(-input.Y, 0, -input.X);
         if(direction!=Vector3.zero) {
             Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation=rotation;
         }
-
+        Debug.DrawRay(transform.position, transform.forward, Color.green);
 
     }
 

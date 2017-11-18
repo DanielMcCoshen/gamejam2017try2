@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0cf496dfb598491c83ec898011b136e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 2
 --- !u!137 &137382288096572416
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
