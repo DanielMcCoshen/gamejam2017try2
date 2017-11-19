@@ -155,6 +155,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -2.7
       objectReference: {fileID: 0}
+    - target: {fileID: 1897076499235702, guid: 09af84690af22064e96b218e3bcc1a5d, type: 2}
+      propertyPath: m_TagString
+      value: Enviromental
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09af84690af22064e96b218e3bcc1a5d, type: 2}
   m_IsPrefabParent: 0
@@ -267,6 +271,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8ab0b89493f83e14dae8616ab42a2b97, type: 2}
+    - target: {fileID: 100000, guid: 6ca1b32d2d5f75d4eb3786882e9f15ab, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ca1b32d2d5f75d4eb3786882e9f15ab, type: 3}
   m_IsPrefabParent: 0
@@ -576,6 +584,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 203b75d93ae3f9741b2d84a5b927fc3c, type: 2}
+    - target: {fileID: 1374673785685026, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
+      propertyPath: m_TagString
+      value: Enviromental
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
   m_IsPrefabParent: 0
@@ -685,6 +697,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1374673785685026, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
+      propertyPath: m_TagString
+      value: Enviromental
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
   m_IsPrefabParent: 0
@@ -750,6 +766,10 @@ Prefab:
     - target: {fileID: 4936657523806202, guid: 1c061f40e32fab9488990066168f5504, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 236.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787597312717602, guid: 1c061f40e32fab9488990066168f5504, type: 2}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c061f40e32fab9488990066168f5504, type: 2}
@@ -834,6 +854,10 @@ Prefab:
     - target: {fileID: 4531007591552334, guid: 4ca58794a1664bc4eabece8b66fc346a, type: 2}
       propertyPath: m_RootOrder
       value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863430756441810, guid: 4ca58794a1664bc4eabece8b66fc346a, type: 2}
+      propertyPath: m_TagString
+      value: Enviromental
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ca58794a1664bc4eabece8b66fc346a, type: 2}
@@ -965,6 +989,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -183.997
       objectReference: {fileID: 0}
+    - target: {fileID: 1329923258403752, guid: 2689c2c1a8bcd5e4b87c1e91a767d763, type: 2}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2689c2c1a8bcd5e4b87c1e91a767d763, type: 2}
   m_IsPrefabParent: 0
@@ -1031,6 +1059,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8ab0b89493f83e14dae8616ab42a2b97, type: 2}
+    - target: {fileID: 100000, guid: 82ce8482b7218d345aa50da93c4aee84, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 82ce8482b7218d345aa50da93c4aee84, type: 3}
   m_IsPrefabParent: 0
@@ -1187,6 +1219,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1374673785685026, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
+      propertyPath: m_TagString
+      value: Enviromental
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
   m_IsPrefabParent: 0
@@ -1304,6 +1340,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 372b03bfa904a8e49b3a33beda2b0b47, type: 2}
+    - target: {fileID: 1374673785685026, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
+      propertyPath: m_TagString
+      value: Enviromental
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
   m_IsPrefabParent: 0
@@ -1361,6 +1401,10 @@ Prefab:
       propertyPath: powerUpSpawns.Array.data[2]
       value: 
       objectReference: {fileID: 1278962544}
+    - target: {fileID: 1905378506714642, guid: 47a2444c1d521e34b947818c13ee488e, type: 2}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47a2444c1d521e34b947818c13ee488e, type: 2}
   m_IsPrefabParent: 0
@@ -1423,6 +1467,10 @@ Prefab:
     - target: {fileID: 4968746800079248, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374673785685026, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
+      propertyPath: m_TagString
+      value: Enviromental
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
@@ -1648,6 +1696,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -2.26
       objectReference: {fileID: 0}
+    - target: {fileID: 1897076499235702, guid: 09af84690af22064e96b218e3bcc1a5d, type: 2}
+      propertyPath: m_TagString
+      value: Enviromental
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09af84690af22064e96b218e3bcc1a5d, type: 2}
   m_IsPrefabParent: 0
@@ -1865,6 +1917,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 372b03bfa904a8e49b3a33beda2b0b47, type: 2}
+    - target: {fileID: 1374673785685026, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
+      propertyPath: m_TagString
+      value: Enviromental
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
   m_IsPrefabParent: 0
@@ -1918,6 +1974,10 @@ Prefab:
     - target: {fileID: 1374673785685026, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
       propertyPath: m_Name
       value: book (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374673785685026, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
+      propertyPath: m_TagString
+      value: Enviromental
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c13580a7188f664ba357dbd1c509a4b, type: 2}
