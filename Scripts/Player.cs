@@ -28,6 +28,9 @@ public class Player:MonoBehaviour {
     public GameObject opponent2;
     public GameObject[] modes;
 
+    public GameObject tankShootPoint;
+    public GameObject shell;
+
     private inputDelegate inputFunc;
     private attackDelegate currentAttack;
     private attackDelegate[] attacks;
@@ -36,6 +39,7 @@ public class Player:MonoBehaviour {
     private Rigidbody rb;
     private bool grouned = true;
     private bool invuln;
+    private bool changingmodes;
 
     private GameObject currentMode;
     //////////////////////////////////////////////////////////////////////////////
@@ -75,7 +79,7 @@ public class Player:MonoBehaviour {
 
         Vector3 direction = new Vector3(-input.Y, 0, -input.X);
         //Debug.Log(direction);
-        if(direction!=Vector3.zero) {
+        if(direction!=Vector3.zero && !changingmodes) {
             Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation=rotation;
             if(grouned) {
@@ -92,12 +96,16 @@ public class Player:MonoBehaviour {
     }
     IEnumerator modeHelper(int newMode) {
         anim.SetTrigger("Transform");
+        isAttacking = true;
+        changingmodes = true;
         yield return new WaitForSeconds(2f);
         currentAttack=attacks[newMode];
         currentMode.SetActive(false);
         currentMode = modes[newMode];
         currentMode.SetActive(true);
         anim = currentMode.GetComponent<Animator>();
+        isAttacking = false;
+        changingmodes = false;
     }
 
     void applyDamage(int dmg) {
@@ -173,6 +181,7 @@ public class Player:MonoBehaviour {
         Debug.Log("he attac");
         anim.SetTrigger("Attack");
         isAttacking = true;
+        Destroy(Instantiate(shell, tankShootPoint.transform.position, tankShootPoint.transform.rotation), 10f);
         yield return new WaitForSeconds(1f);
         resetBase();
         isAttacking = false;
