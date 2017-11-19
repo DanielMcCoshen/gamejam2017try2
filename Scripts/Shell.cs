@@ -19,7 +19,7 @@ public class Shell : MonoBehaviour {
         }
         foreach(GameObject g in GameObject.FindGameObjectsWithTag("Enviromental")) {
             if(Vector3.Distance(transform.position, g.transform.position) < range) {
-                g.GetComponent<Rigidbody>().AddExplosionForce(boompower, transform.position, range * 2);
+                g.GetComponent<Rigidbody>().AddExplosionForce(boompower, transform.position, range);
             }
         }
         Destroy(gameObject);
