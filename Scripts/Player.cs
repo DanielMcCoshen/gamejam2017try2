@@ -55,6 +55,12 @@ public class Player:MonoBehaviour {
             case 2:
                 inputFunc=rightStick;
                 break;
+            case 3:
+                inputFunc = leftStick2;
+                break;
+            case 4:
+                inputFunc = rightStick2;
+                break;
         }
 
         currentMode = modes[0];
@@ -216,6 +222,22 @@ public class Player:MonoBehaviour {
         toRet.Y=Input.GetAxis("P2-V");
         toRet.attack=Input.GetAxis("P2-A")>0.5;
         toRet.block=Input.GetAxis("P2-B")==1;
+        return toRet;
+    }
+    private inputType leftStick2() {
+        inputType toRet = new inputType();
+        toRet.X = Input.GetAxis("P3-H");
+        toRet.Y = Input.GetAxis("P3-V");
+        toRet.attack = Input.GetAxis("P3-A") > 0.5;
+        toRet.block = Input.GetAxis("P3-B") == 1;
+        return toRet;
+    }
+    private inputType rightStick2() {
+        inputType toRet = new inputType();
+        toRet.X = Input.GetAxis("P4-H");
+        toRet.Y = Input.GetAxis("P4-V");
+        toRet.attack = Input.GetAxis("P4-A") > 0.5;
+        toRet.block = Input.GetAxis("P4-B") == 1;
         return toRet;
     }
 }
