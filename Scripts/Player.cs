@@ -108,7 +108,7 @@ public class Player:MonoBehaviour {
         changingmodes = false;
     }
 
-    void applyDamage(int dmg) {
+    public void applyDamage(int dmg) {
         if(dmg > 1 || !invuln) {
             currentHealth = currentHealth - dmg;
             Debug.Log(playerNumber+" "+currentHealth + ", " + dmg);
