@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class menuScript : MonoBehaviour {
 
+    public AudioSource a1;
+    public AudioSource a2;
+    
     public string[] levs;
-
+    private string level;
 	// Use this for initialization
 	void Start () {
     }
@@ -18,16 +21,28 @@ public class menuScript : MonoBehaviour {
 
     public void onLevelSelect(string lev)
     {
-        SceneManager.LoadScene(lev);
+        a1.Play();
+        level = lev;
+        Invoke("changeLevel", 0.5f);
+    }
+
+    private void changeLevel() {
+        SceneManager.LoadScene(level);
     }
     public void onLevelRandom()
     {
-        SceneManager.LoadScene(levs[Random.Range(0, levs.Length)]);
+        a1.Play();
+        level = levs[Random.Range(0, levs.Length)];
+        Invoke("changeLevel", 0.5f);
     }
 
     public void onExit()
     {
         Application.Quit();
+    }
+
+    public void onHighlight() {
+        a2.Play();
     }
 }
 
