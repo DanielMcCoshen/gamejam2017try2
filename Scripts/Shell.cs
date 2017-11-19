@@ -17,7 +17,7 @@ public class Shell : MonoBehaviour {
                 g.GetComponent<Rigidbody>().AddExplosionForce(boompower, transform.position, range*2);
             }
         }
-        foreach(GameObject g in GameObject.FindGameObjectsWithTag("Environmental")) {
+        foreach(GameObject g in GameObject.FindGameObjectsWithTag("Enviromental")) {
             if(Vector3.Distance(transform.position, g.transform.position) < range) {
                 g.GetComponent<Rigidbody>().AddExplosionForce(boompower, transform.position, range * 2);
             }
