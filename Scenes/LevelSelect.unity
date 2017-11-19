@@ -151,7 +151,7 @@ Prefab:
         type: 2}
       propertyPath: cheerio
       value: 
-      objectReference: {fileID: 1111868105449454, guid: 44bee21f231f6c44798c38c6fca07dfa,
+      objectReference: {fileID: 1639460887055770, guid: 0441088be655a164db72d0b7672d1655,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7a7f06814315e3478e1956eba9e0b5d, type: 2}
@@ -1136,6 +1136,11 @@ Prefab:
     - target: {fileID: 4543365632163712, guid: 44bee21f231f6c44798c38c6fca07dfa, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114079122525223112, guid: 44bee21f231f6c44798c38c6fca07dfa,
+        type: 2}
+      propertyPath: threashold
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 54792003072967582, guid: 44bee21f231f6c44798c38c6fca07dfa, type: 2}

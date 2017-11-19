@@ -230,6 +230,13 @@ public class Player:MonoBehaviour {
                 g.GetComponent<Rigidbody>().AddExplosionForce(fanPowah, transform.position, fanRange);
             }
         }
+        foreach(GameObject g in GameObject.FindGameObjectsWithTag("Environment")) {
+            Vector3 directionToTarget = transform.position - g.transform.position;
+            float angle = Vector3.Angle(transform.forward, directionToTarget);
+            if(Vector3.Distance(transform.position, g.transform.position) < fanRange && Mathf.Abs(angle) < 45) {
+                g.GetComponent<Rigidbody>().AddExplosionForce(fanPowah, transform.position, fanRange);
+            }
+        }
         yield return new WaitForSeconds(1f);
         resetBase();
         isAttacking = false;
