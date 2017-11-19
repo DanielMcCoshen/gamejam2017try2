@@ -42,6 +42,18 @@ public class gameController:MonoBehaviour {
         player2 = Instantiate(player2prefab, player2spawn.transform.position, player2spawn.transform.rotation);
         player3 = Instantiate(player3prefab, player3spawn.transform.position, player3spawn.transform.rotation);
         player4 = Instantiate(player4prefab, player4spawn.transform.position, player4spawn.transform.rotation);
+
+        player1.GetComponent<Player>().opponent1 = player3;
+        player1.GetComponent<Player>().opponent2 = player4;
+
+        player2.GetComponent<Player>().opponent1 = player3;
+        player2.GetComponent<Player>().opponent2 = player4;
+
+        player3.GetComponent<Player>().opponent1 = player1;
+        player3.GetComponent<Player>().opponent2 = player2;
+
+        player4.GetComponent<Player>().opponent1 = player1;
+        player4.GetComponent<Player>().opponent2 = player2;
     }
 
 	// Update is called once per frame
@@ -49,14 +61,20 @@ public class gameController:MonoBehaviour {
 		if (player1 == null && player2 == null) {
             team2wins++;
         }
-        if(player3 == null && player4 == null) {
+        else if(player3 == null && player4 == null) {
             team1wins++;
         }
         if (team1wins >= 3) {
             gameEnd(1);
         }
-        if(team2wins >= 3) {
+        else if(team2wins >= 3) {
             gameEnd(2);
+        }
+        else {
+            foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player")) {
+                Destroy(g);
+                startGame();
+            }
         }
         
     }
