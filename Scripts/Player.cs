@@ -54,6 +54,8 @@ public class Player:MonoBehaviour {
     public AudioSource deathSound;
     public AudioSource tankShotSound;
     public AudioSource transformSound;
+
+    public GameObject vapeNache;
     
 
     //////////////////////////////////////////////////////////////////////////////
@@ -103,11 +105,8 @@ public class Player:MonoBehaviour {
         if(direction!=Vector3.zero && !changingmodes) {
             Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation=rotation;
-            if(grouned) {
-                
-                rb.AddForce(Quaternion.Euler(0, -90, 0)*direction*speed*10);
-                
-            }
+            rb.AddForce(Quaternion.Euler(0, -90, 0)*direction*speed*10);
+             
         }
         anim.SetFloat("Speed", rb.velocity.magnitude);
     }
@@ -122,6 +121,11 @@ public class Player:MonoBehaviour {
         isAttacking = true;
         changingmodes = true;
         yield return new WaitForSeconds(2f);
+        for(int i = 0; i < 50; i++ ) {
+            GameObject g = Instantiate(vapeNache, transform.position, Random.rotation);
+            g.GetComponent<Rigidbody>().velocity = Random.onUnitSphere * 3;
+            Destroy(g, 1f);
+        }
         currentAttack=attacks[newMode];
         currentMode.SetActive(false);
         currentMode = modes[newMode];

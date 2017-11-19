@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class gameController:MonoBehaviour {
     public GameObject player1prefab;
@@ -33,6 +34,11 @@ public class gameController:MonoBehaviour {
     public GameObject team1winDrop;
     public GameObject team2winDrop;
 
+    public Text team1Label;
+    public Text team2Label;
+
+    private bool reset = false;
+
     // Use this for initialization
     void Start() {
         team1wins = 0;
@@ -42,6 +48,7 @@ public class gameController:MonoBehaviour {
     }
 
     void startGame() {
+        reset = false;
         player1 = Instantiate(player1prefab, player1spawn.transform.position, player1spawn.transform.rotation);
         player2 = Instantiate(player2prefab, player2spawn.transform.position, player2spawn.transform.rotation);
         player3 = Instantiate(player3prefab, player3spawn.transform.position, player3spawn.transform.rotation);
@@ -58,17 +65,22 @@ public class gameController:MonoBehaviour {
 
         player4.GetComponent<Player>().opponent1 = player1;
         player4.GetComponent<Player>().opponent2 = player2;
+
+        team1Label.text = team1wins + "/3";
+        team2Label.text = team2wins + "/3";
     }
 
     // Update is called once per frame
     void Update() {
-        if(player1 == null && player2 == null) {
+        if(player1 == null && player2 == null && !reset) {
             team2wins++;
-            roundEnd();
+            StartCoroutine("roundEnd");
+            reset = true;
         }
-        else if(player3 == null && player4 == null) {
+        else if(player3 == null && player4 == null && !reset) {
             team1wins++;
-            roundEnd();
+            StartCoroutine("roundEnd");
+            reset = true;
         }
 
         if (Input.GetAxis("P1BackButton") == 1)
@@ -78,7 +90,7 @@ public class gameController:MonoBehaviour {
 
     }
 
-    private void roundEnd() {
+    private IEnumerator roundEnd() {
         if(team1wins >= 3) {
              StartCoroutine("gameEnd", 1);
         }
@@ -86,9 +98,10 @@ public class gameController:MonoBehaviour {
             StartCoroutine("gameEnd", 2);
         }
         else {
+            yield return new WaitForSeconds(2f);
             foreach(GameObject g in GameObject.FindGameObjectsWithTag("Player")) {
                 Destroy(g);
-
+               
             }
             startGame();
         }

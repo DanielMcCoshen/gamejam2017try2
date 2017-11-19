@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2720,7 +2720,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fbbba93bad71aeb459b26f2029eb0a73, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 146e4cd7de560d741a8255192069c9cf, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3000,6 +3000,13 @@ MonoBehaviour:
     type: 2}
   deathParticles: {fileID: 1820524989650372, guid: 3f540d442f7bc504c9c45d49aecbec47,
     type: 2}
+  atkSound: {fileID: 0}
+  blockedSound: {fileID: 0}
+  dmgSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  tankShotSound: {fileID: 0}
+  transformSound: {fileID: 0}
+  vapeNache: {fileID: 0}
 --- !u!65 &1344316869
 BoxCollider:
   m_ObjectHideFlags: 0
