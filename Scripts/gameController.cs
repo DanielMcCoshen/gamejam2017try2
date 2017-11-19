@@ -60,10 +60,17 @@ public class gameController:MonoBehaviour {
 	void Update () {
 		if (player1 == null && player2 == null) {
             team2wins++;
+            roundEnd();
         }
         else if(player3 == null && player4 == null) {
             team1wins++;
+            roundEnd();
         }
+        
+    }
+
+    private void roundEnd()
+    {
         if (team1wins >= 3) {
             gameEnd(1);
         }
@@ -76,7 +83,6 @@ public class gameController:MonoBehaviour {
                 startGame();
             }
         }
-        
     }
 
     private IEnumerator spawnPowerUp() {
