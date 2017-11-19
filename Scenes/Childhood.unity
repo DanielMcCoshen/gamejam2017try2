@@ -5181,7 +5181,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4543365632163712, guid: 44bee21f231f6c44798c38c6fca07dfa, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4543365632163712, guid: 44bee21f231f6c44798c38c6fca07dfa, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6709,7 +6709,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1398721154
 Prefab:
@@ -9817,12 +9817,16 @@ MonoBehaviour:
   - {fileID: 1792047864826090, guid: 29074e7768268cf47b313d105b496d15, type: 2}
   powerUpSpawns:
   - {fileID: 2054148276}
+  - {fileID: 392137379}
+  - {fileID: 1355570738}
   minPowerUpInterval: 10
   MaxPowerUpInterval: 15
   powerUpTimeOut: 7
   winspamer: {fileID: 874866854}
-  team1winDrop: {fileID: 392137379}
-  team2winDrop: {fileID: 1355570738}
+  team1winDrop: {fileID: 1785504273719936, guid: 4c006e755f7e1c940b13f4f42989b81d,
+    type: 2}
+  team2winDrop: {fileID: 1894627546351702, guid: 40c2b71d0290540488e101fe0f152202,
+    type: 2}
 --- !u!1001 &1927096500
 Prefab:
   m_ObjectHideFlags: 0

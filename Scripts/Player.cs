@@ -47,6 +47,15 @@ public class Player:MonoBehaviour {
     private bool changingmodes;
 
     private GameObject currentMode;
+
+    public AudioSource atkSound;
+    public AudioSource blockedSound;
+    public AudioSource dmgSound;
+    public AudioSource deathSound;
+    public AudioSource tankShotSound;
+    public AudioSource transformSound;
+    
+
     //////////////////////////////////////////////////////////////////////////////
     //                              MAIN METHODS                                //
     //////////////////////////////////////////////////////////////////////////////
@@ -107,6 +116,8 @@ public class Player:MonoBehaviour {
         StartCoroutine("modeHelper", newMode);
     }
     IEnumerator modeHelper(int newMode) {
+        transformSound.Play();
+
         anim.SetTrigger("Transform");
         isAttacking = true;
         changingmodes = true;
@@ -118,21 +129,28 @@ public class Player:MonoBehaviour {
         anim = currentMode.GetComponent<Animator>();
         isAttacking = false;
         changingmodes = false;
+
+        transformSound.Stop();
     }
 
     public void applyDamage(int dmg) {
         if(dmg > 1 || !invuln) {
             currentHealth = currentHealth - dmg;
             Debug.Log(playerNumber+" "+currentHealth + ", " + dmg);
+            
             for(int i=currentHealth; i< maxHealth; i++) {
                 Instantiate(damageParticles, transform.position, transform.rotation);
             }
             if (currentHealth <= 0) {
-                onDeath();
+                StartCoroutine(onDeath());
+            }
+            else {
+                dmgSound.Play();
             }
         }
         else if(invuln) {
             Debug.Log("BLOCKED!");
+            blockedSound.Play();
         }
     }
 
@@ -154,11 +172,13 @@ public class Player:MonoBehaviour {
         anim = currentMode.GetComponent<Animator>();
     }
 
-    public void onDeath(){
+    public IEnumerator onDeath(){
+        deathSound.Play();
         for (int i = 0; i < 10; i++)
         {
             Instantiate(deathParticles, transform.position, Random.rotation);
         }
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
 
     }
@@ -175,6 +195,7 @@ public class Player:MonoBehaviour {
         invuln = false;
     }
     private IEnumerator basicAttack() {
+        atkSound.Play();
         anim.SetTrigger("Attack");
         isAttacking=true;
 
@@ -203,6 +224,7 @@ public class Player:MonoBehaviour {
         isAttacking=false;
     }
     private IEnumerator tankAttac() {
+        tankShotSound.Play();
         Debug.Log("he attac");
         anim.SetTrigger("Attack");
         isAttacking = true;
@@ -245,6 +267,7 @@ public class Player:MonoBehaviour {
 
     private IEnumerator swardAttac()
     {
+        atkSound.Play();
         isAttacking = true;
         anim.SetTrigger("Attack");
         yield return new WaitForSeconds(1f);
