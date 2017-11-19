@@ -341,6 +341,7 @@ MonoBehaviour:
   levs:
   - Childhood
   - Tarik
+  - Bookworm
 --- !u!82 &165502472
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1593,7 +1594,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level 3
+  m_Text: 'Bookworm
 
 '
 --- !u!222 &1173938795
@@ -2268,7 +2269,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level 3
+  m_Text: 'Bookworm
 
 '
 --- !u!222 &2111833152

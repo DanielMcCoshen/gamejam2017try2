@@ -5,7 +5,11 @@ using UnityEngine;
 public class Shell : MonoBehaviour {
 
     public float range;
-    public float boompower; 
+    public float boompower;
+
+    private void Start()
+    {
+    }
 
     private void OnCollisionEnter(Collision collision) {
         if(collision.gameObject.tag == "Player") {

@@ -71,6 +71,11 @@ public class gameController:MonoBehaviour {
             roundEnd();
         }
 
+        if (Input.GetAxis("P1BackButton") == 1)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
     }
 
     private void roundEnd() {
