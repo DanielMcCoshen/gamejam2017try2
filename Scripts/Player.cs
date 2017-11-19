@@ -181,10 +181,12 @@ public class Player:MonoBehaviour {
         Debug.Log("he attac");
         anim.SetTrigger("Attack");
         isAttacking = true;
+        changingmodes = true;
         Destroy(Instantiate(shell, tankShootPoint.transform.position, tankShootPoint.transform.rotation), 10f);
         yield return new WaitForSeconds(1f);
         resetBase();
         isAttacking = false;
+        changingmodes = false;
     }
     ///////////////////////////////////////////////////////////////////////////
     //                             INPUT TYPE METHODS                        //
