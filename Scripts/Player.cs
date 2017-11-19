@@ -51,7 +51,8 @@ public class Player:MonoBehaviour {
                 break;
         }
 
-        anim=GetComponent<Animator>();
+        currentMode = modes[0];
+        anim=currentMode.GetComponent<Animator>();
         attacks=new attackDelegate[1];
         attacks[0]=basicAttack;
         currentAttack=attacks[0];
@@ -62,6 +63,7 @@ public class Player:MonoBehaviour {
     // Update is called once per frame
     void Update() {
         inputType input = inputFunc();
+        Debug.Log(input.X + ", " + input.Y);
         if(input.attack && !isAttacking) {
             StartCoroutine(currentAttack());
         }
@@ -70,10 +72,12 @@ public class Player:MonoBehaviour {
         }
 
         Vector3 direction = new Vector3(-input.Y, 0, -input.X);
+        //Debug.Log(direction);
         if(direction!=Vector3.zero) {
             Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation=rotation;
             if(grouned) {
+                
                 rb.AddForce(Quaternion.Euler(0, -90, 0)*direction*speed*10);
                 
             }
