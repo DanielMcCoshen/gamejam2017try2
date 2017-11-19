@@ -53,8 +53,10 @@ public class Player:MonoBehaviour {
 
         currentMode = modes[0];
         anim=currentMode.GetComponent<Animator>();
-        attacks=new attackDelegate[1];
+        attacks=new attackDelegate[2];
         attacks[0]=basicAttack;
+        attacks[1] = tankAttac;
+
         currentAttack=attacks[0];
         rb=GetComponent<Rigidbody>();
         currentHealth=maxHealth;
@@ -63,7 +65,7 @@ public class Player:MonoBehaviour {
     // Update is called once per frame
     void Update() {
         inputType input = inputFunc();
-        Debug.Log(input.X + ", " + input.Y);
+       // Debug.Log(input.X + ", " + input.Y);
         if(input.attack && !isAttacking) {
             StartCoroutine(currentAttack());
         }
@@ -85,9 +87,17 @@ public class Player:MonoBehaviour {
         anim.SetFloat("Speed", rb.velocity.magnitude);
     }
 
-    void changeAttack(int attacktype) {
+    void changeMode(int newMode) {
+        StartCoroutine("modeHelper", newMode);
+    }
+    IEnumerator modeHelper(int newMode) {
         anim.SetTrigger("Transform");
-        currentAttack=attacks[attacktype];
+        yield return new WaitForSeconds(2f);
+        currentAttack=attacks[newMode];
+        currentMode.SetActive(false);
+        currentMode = modes[newMode];
+        currentMode.SetActive(true);
+        anim = currentMode.GetComponent<Animator>();
     }
 
     void applyDamage(int dmg) {
@@ -112,6 +122,13 @@ public class Player:MonoBehaviour {
         if(collision.gameObject.tag=="Ground") {
             grouned=false;
         }
+    }
+    private void resetBase() {
+        currentAttack = attacks[0];
+        currentMode.SetActive(false);
+        currentMode = modes[0];
+        currentMode.SetActive(true);
+        anim = currentMode.GetComponent<Animator>();
     }
     //////////////////////////////////////////////////////////////////////////////
     //                            ATTACK TYPE METHODS                           //
@@ -151,6 +168,14 @@ public class Player:MonoBehaviour {
         yield return new WaitForSeconds(0.3f);
 
         isAttacking=false;
+    }
+    private IEnumerator tankAttac() {
+        Debug.Log("he attac");
+        anim.SetTrigger("Attack");
+        isAttacking = true;
+        yield return new WaitForSeconds(1f);
+        resetBase();
+        isAttacking = false;
     }
     ///////////////////////////////////////////////////////////////////////////
     //                             INPUT TYPE METHODS                        //
