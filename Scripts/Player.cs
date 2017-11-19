@@ -66,9 +66,10 @@ public class Player:MonoBehaviour {
 
         currentMode = modes[0];
         anim=currentMode.GetComponent<Animator>();
-        attacks=new attackDelegate[2];
+        attacks=new attackDelegate[3];
         attacks[0]=basicAttack;
         attacks[1] = tankAttac;
+        attacks[2] = swardAttac;
 
         currentAttack=attacks[0];
         rb=GetComponent<Rigidbody>();
@@ -190,7 +191,7 @@ public class Player:MonoBehaviour {
             float angle = Vector3.Angle(transform.forward, directionToTarget);
             float distance = directionToTarget.magnitude;
             Debug.Log("to o2 " + angle + ", " + distance);
-            if(Mathf.Abs(angle) < 90 && distance < 5) {
+            if(Mathf.Abs(angle) < 180 && distance < 5) {
                 opponent2.SendMessage("applyDamage", 1);
             }
         }
@@ -209,6 +210,39 @@ public class Player:MonoBehaviour {
         resetBase();
         isAttacking = false;
         changingmodes = false;
+    }
+
+    private IEnumerator swardAttac()
+    {
+        isAttacking = true;
+        anim.SetTrigger("Attack");
+        yield return new WaitForSeconds(1f);
+        if (opponent1 != null)
+        {
+            Vector3 directionToTarget = transform.position - opponent1.transform.position;
+            float angle = Vector3.Angle(transform.forward, directionToTarget);
+            float distance = directionToTarget.magnitude;
+            Debug.Log("to o1 " + angle + ", " + distance);
+            if (Mathf.Abs(angle) < 180 && distance < 10)
+            {
+                opponent1.SendMessage("applyDamage", 5);
+            }
+        }
+        if (opponent2 != null)
+        {
+            Vector3 directionToTarget = transform.position - opponent2.transform.position;
+            float angle = Vector3.Angle(transform.forward, directionToTarget);
+            float distance = directionToTarget.magnitude;
+            Debug.Log("to o2 " + angle + ", " + distance);
+            if (Mathf.Abs(angle) < 180 && distance < 10)
+            {
+                opponent2.SendMessage("applyDamage", 5);
+            }
+        }
+        yield return new WaitForSeconds(1f);
+        resetBase();
+        isAttacking = false;
+
     }
     ///////////////////////////////////////////////////////////////////////////
     //                             INPUT TYPE METHODS                        //

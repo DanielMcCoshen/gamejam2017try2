@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour {
 
+    public int powerMode = 1;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -14,7 +16,7 @@ public class Powerup : MonoBehaviour {
 		
 	}
     private void OnCollisionEnter(Collision collision) {
-        collision.gameObject.SendMessage("changeMode", 1);
+        collision.gameObject.SendMessage("changeMode", powerMode);
         Destroy(gameObject);
     }
 }
