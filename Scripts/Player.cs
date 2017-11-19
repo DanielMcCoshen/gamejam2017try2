@@ -31,6 +31,8 @@ public class Player:MonoBehaviour {
     public GameObject tankShootPoint;
     public GameObject shell;
 
+    public GameObject deathParticles;
+
     private inputDelegate inputFunc;
     private attackDelegate currentAttack;
     private attackDelegate[] attacks;
@@ -113,7 +115,7 @@ public class Player:MonoBehaviour {
             currentHealth = currentHealth - dmg;
             Debug.Log(playerNumber+" "+currentHealth + ", " + dmg);
             if (currentHealth <= 0) {
-                Destroy(gameObject);
+                onDeath();
             }
         }
         else if(invuln) {
@@ -137,6 +139,15 @@ public class Player:MonoBehaviour {
         currentMode = modes[0];
         currentMode.SetActive(true);
         anim = currentMode.GetComponent<Animator>();
+    }
+
+    public void onDeath(){
+        for (int i = 0; i < 10; i++)
+        {
+            Instantiate(deathParticles, transform.position, Random.rotation);
+        }
+        Destroy(gameObject);
+
     }
     //////////////////////////////////////////////////////////////////////////////
     //                            ATTACK TYPE METHODS                           //
