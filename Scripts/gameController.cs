@@ -2,15 +2,75 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gameController : MonoBehaviour {
+public class gameController:MonoBehaviour {
+    public GameObject player1prefab;
+    public GameObject player2prefab;
+    public GameObject player3prefab;
+    public GameObject player4prefab;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+    public GameObject player1spawn;
+    public GameObject player2spawn;
+    public GameObject player3spawn;
+    public GameObject player4spawn;
+
+    private GameObject player1;
+    private GameObject player2;
+    private GameObject player3;
+    private GameObject player4;
+
+    public GameObject[] powerups;
+    public GameObject[] powerUpSpawns;
+
+    public float minPowerUpInterval;
+    public float MaxPowerUpInterval;
+    public float powerUpTimeOut;
+
+    private int team1wins;
+    private int team2wins;
+
+
+    // Use this for initialization
+    void Start () {
+        team1wins = 0;
+        team2wins = 0;
+        startGame();
+        StartCoroutine("spawnPowerUp");
+    }
+
+    void startGame() {
+        player1 = Instantiate(player1prefab, player1spawn.transform.position, player1spawn.transform.rotation);
+        player2 = Instantiate(player2prefab, player2spawn.transform.position, player2spawn.transform.rotation);
+        player3 = Instantiate(player3prefab, player3spawn.transform.position, player3spawn.transform.rotation);
+        player4 = Instantiate(player4prefab, player4spawn.transform.position, player4spawn.transform.rotation);
+    }
+
 	// Update is called once per frame
 	void Update () {
-		
-	}
+		if (player1 == null && player2 == null) {
+            team2wins++;
+        }
+        if(player3 == null && player4 == null) {
+            team1wins++;
+        }
+        if (team1wins >= 3) {
+            gameEnd(1);
+        }
+        if(team2wins >= 3) {
+            gameEnd(2);
+        }
+        
+    }
+
+    private IEnumerator spawnPowerUp() {
+        while(true) {
+            yield return new WaitForSeconds(Random.Range(minPowerUpInterval, MaxPowerUpInterval));
+            GameObject p = powerups[Random.Range(0, powerups.Length)];
+            GameObject sp = powerUpSpawns[Random.Range(0, powerUpSpawns.Length)];
+            Destroy(Instantiate(p, sp.transform.position, sp.transform.rotation), powerUpTimeOut);
+
+        }
+    }
+    private void gameEnd(int team) {
+
+    }
 }
