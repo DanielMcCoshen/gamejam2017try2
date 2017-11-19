@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class menuScript : MonoBehaviour {
 
+    public string[] levs;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,7 @@ public class menuScript : MonoBehaviour {
     {
         SceneManager.LoadScene(lev);
     }
-    public void onLevelRandom(string[] levs)
+    public void onLevelRandom()
     {
         SceneManager.LoadScene(levs[Random.Range(0, levs.Length)]);
     }
