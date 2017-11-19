@@ -838,6 +838,8 @@ MonoBehaviour:
   - {fileID: 1855386361464692}
   tankShootPoint: {fileID: 1543749853995122}
   shell: {fileID: 1889121329672074, guid: 27036ab3239f8cf42a4755ae03f80fa4, type: 2}
+  damageParticles: {fileID: 1688143716239114, guid: fd4b30b5e0a5e88409e7672e017f33f2,
+    type: 2}
   deathParticles: {fileID: 1820524989650372, guid: 3f540d442f7bc504c9c45d49aecbec47,
     type: 2}
 --- !u!137 &137012272164821932

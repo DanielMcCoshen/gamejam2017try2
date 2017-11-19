@@ -405,7 +405,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1239120921375146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.9, y: 6.0935774, z: -17.1}
+  m_LocalPosition: {x: 11.141462, y: 6.0935774, z: -2.5684528}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4727519990861568}
@@ -838,6 +838,8 @@ MonoBehaviour:
   - {fileID: 1382543953973024}
   tankShootPoint: {fileID: 1593360256055920}
   shell: {fileID: 1889121329672074, guid: 27036ab3239f8cf42a4755ae03f80fa4, type: 2}
+  damageParticles: {fileID: 1688143716239114, guid: fd4b30b5e0a5e88409e7672e017f33f2,
+    type: 2}
   deathParticles: {fileID: 1820524989650372, guid: 3f540d442f7bc504c9c45d49aecbec47,
     type: 2}
 --- !u!137 &137789320847549724

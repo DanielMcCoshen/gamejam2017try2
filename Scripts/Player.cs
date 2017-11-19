@@ -31,6 +31,7 @@ public class Player:MonoBehaviour {
     public GameObject tankShootPoint;
     public GameObject shell;
 
+    public GameObject damageParticles;
     public GameObject deathParticles;
 
     private inputDelegate inputFunc;
@@ -120,6 +121,9 @@ public class Player:MonoBehaviour {
         if(dmg > 1 || !invuln) {
             currentHealth = currentHealth - dmg;
             Debug.Log(playerNumber+" "+currentHealth + ", " + dmg);
+            for(int i=currentHealth; i< maxHealth; i++) {
+                Instantiate(damageParticles, transform.position, transform.rotation);
+            }
             if (currentHealth <= 0) {
                 onDeath();
             }
@@ -176,7 +180,7 @@ public class Player:MonoBehaviour {
             Vector3 directionToTarget = transform.position - opponent1.transform.position;
             float angle = Vector3.Angle(transform.forward, directionToTarget);
             float distance = directionToTarget.magnitude;
-            Debug.Log(angle + ", " + distance);
+            Debug.Log( "to o1 "+ angle + ", " + distance);
             if(Mathf.Abs(angle) < 180 && distance < 5) {
                 opponent1.SendMessage("applyDamage", 1);
             }
@@ -185,7 +189,8 @@ public class Player:MonoBehaviour {
             Vector3 directionToTarget = transform.position - opponent2.transform.position;
             float angle = Vector3.Angle(transform.forward, directionToTarget);
             float distance = directionToTarget.magnitude;
-            if(Mathf.Abs(angle) < 90 && distance < 0) {
+            Debug.Log("to o2 " + angle + ", " + distance);
+            if(Mathf.Abs(angle) < 90 && distance < 5) {
                 opponent2.SendMessage("applyDamage", 1);
             }
         }
