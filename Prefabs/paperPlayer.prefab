@@ -405,7 +405,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1239120921375146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.141462, y: 6.0935774, z: -2.5684528}
+  m_LocalPosition: {x: 36.9, y: 6.0935774, z: -17.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4727519990861568}
@@ -531,7 +531,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1593360256055920}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.49, y: 2.75, z: -4.5}
+  m_LocalPosition: {x: 0.49, y: 1.7, z: -4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4082466799482962}
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 2
   maxHealth: 5
-  speed: 2
+  speed: 1.5
   currentHealth: 0
   opponent1: {fileID: 0}
   opponent2: {fileID: 0}
@@ -838,6 +838,8 @@ MonoBehaviour:
   - {fileID: 1382543953973024}
   tankShootPoint: {fileID: 1593360256055920}
   shell: {fileID: 1889121329672074, guid: 27036ab3239f8cf42a4755ae03f80fa4, type: 2}
+  deathParticles: {fileID: 1820524989650372, guid: 3f540d442f7bc504c9c45d49aecbec47,
+    type: 2}
 --- !u!137 &137789320847549724
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
