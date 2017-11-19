@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gameController:MonoBehaviour {
     public GameObject player1prefab;
@@ -28,9 +29,12 @@ public class gameController:MonoBehaviour {
     private int team1wins;
     private int team2wins;
 
+    public GameObject winspamer;
+    public GameObject team1winDrop;
+    public GameObject team2winDrop;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         team1wins = 0;
         team2wins = 0;
         startGame();
@@ -56,9 +60,9 @@ public class gameController:MonoBehaviour {
         player4.GetComponent<Player>().opponent2 = player2;
     }
 
-	// Update is called once per frame
-	void Update () {
-		if (player1 == null && player2 == null) {
+    // Update is called once per frame
+    void Update() {
+        if(player1 == null && player2 == null) {
             team2wins++;
             roundEnd();
         }
@@ -66,24 +70,25 @@ public class gameController:MonoBehaviour {
             team1wins++;
             roundEnd();
         }
-        
+
     }
 
-    private void roundEnd()
-    {
-        if (team1wins >= 3) {
-            gameEnd(1);
+    private void roundEnd() {
+        if(team1wins >= 3) {
+             StartCoroutine("gameEnd", 1);
         }
         else if(team2wins >= 3) {
-            gameEnd(2);
+            StartCoroutine("gameEnd", 2);
         }
         else {
-            foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player")) {
+            foreach(GameObject g in GameObject.FindGameObjectsWithTag("Player")) {
                 Destroy(g);
-                startGame();
+
             }
+            startGame();
         }
     }
+
 
     private IEnumerator spawnPowerUp() {
         while(true) {
@@ -94,7 +99,17 @@ public class gameController:MonoBehaviour {
 
         }
     }
-    private void gameEnd(int team) {
 
+    private IEnumerator gameEnd(int team) {
+
+        if(team == 1) {
+            winspamer.GetComponent<cheerioSpawner>().cheerio = team1winDrop;
+        }
+        else if(team == 2){
+            winspamer.GetComponent<cheerioSpawner>().cheerio = team2winDrop;
+        }
+        winspamer.SetActive(true);
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

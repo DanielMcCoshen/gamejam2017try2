@@ -16,7 +16,9 @@ public class Powerup : MonoBehaviour {
 		
 	}
     private void OnCollisionEnter(Collision collision) {
-        collision.gameObject.SendMessage("changeMode", powerMode);
-        Destroy(gameObject);
+        if(collision.gameObject.tag == "Player") {
+            collision.gameObject.SendMessage("changeMode", powerMode);
+            Destroy(gameObject);
+        }
     }
 }
