@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 64923362061382810}
   m_Layer: 0
   m_Name: solocupRB
-  m_TagString: Untagged
+  m_TagString: Enviromental
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111868105449454}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -4.7294, y: 3.28, z: 0.79}
-  m_LocalScale: {x: 0.71711886, y: 0.7171185, z: 0.9252429}
+  m_LocalPosition: {x: 41.35, y: 5.7212, z: -10.58}
+  m_LocalScale: {x: 1.3802348, y: 1.3802348, z: 1.3802348}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
