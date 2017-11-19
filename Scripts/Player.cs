@@ -23,6 +23,8 @@ public class Player:MonoBehaviour {
     public int maxHealth;
     public float speed;
     public int currentHealth;
+    public int fanRange = 5;
+    public int fanPowah = 5;
 
     public GameObject opponent1;
     public GameObject opponent2;
@@ -206,6 +208,28 @@ public class Player:MonoBehaviour {
         isAttacking = true;
         changingmodes = true;
         Destroy(Instantiate(shell, tankShootPoint.transform.position, tankShootPoint.transform.rotation), 10f);
+        yield return new WaitForSeconds(1f);
+        resetBase();
+        isAttacking = false;
+        changingmodes = false;
+    }
+
+    private IEnumerator fanAttac()
+    {
+        Debug.Log("huge fanz");
+        anim.SetTrigger("Attack");
+        isAttacking = true;
+        changingmodes = true;
+        yield return new WaitForSeconds(1f);
+        foreach(GameObject g in GameObject.FindGameObjectsWithTag("Player")) {
+            Vector3 directionToTarget = transform.position - g.transform.position;
+            float angle = Vector3.Angle(transform.forward, directionToTarget);
+            if (Vector3.Distance(transform.position, g.transform.position) < fanRange && Mathf.Abs(angle) < 45)
+            {
+                g.SendMessage("applyDamage", 1);
+                g.GetComponent<Rigidbody>().AddExplosionForce(fanPowah, transform.position, fanRange);
+            }
+        }
         yield return new WaitForSeconds(1f);
         resetBase();
         isAttacking = false;

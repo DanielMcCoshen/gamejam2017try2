@@ -216,7 +216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1604559953538924}
   m_LocalRotation: {x: 1.625032e-17, y: -0.9641417, z: -0.2653879, w: -5.9036655e-17}
-  m_LocalPosition: {x: 0, y: -1.2895005, z: 141.82072}
+  m_LocalPosition: {x: -0, y: -1.81, z: 211.9}
   m_LocalScale: {x: 0.04000001, y: 0.9050719, z: 2.460045}
   m_Children: []
   m_Father: {fileID: 4786730862991268}
@@ -273,7 +273,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
