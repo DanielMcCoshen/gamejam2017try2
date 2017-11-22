@@ -6255,6 +6255,8 @@ MonoBehaviour:
     type: 2}
   team2winDrop: {fileID: 1894627546351702, guid: 40c2b71d0290540488e101fe0f152202,
     type: 2}
+  team1Label: {fileID: 0}
+  team2Label: {fileID: 0}
 --- !u!114 &114579727992050674
 MonoBehaviour:
   m_ObjectHideFlags: 1
